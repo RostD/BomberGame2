@@ -58,22 +58,22 @@ public class Bomberman {
     public void update(float dt) {
         animations[currentState.animationIndex].update(dt);
 
-        if (Gdx.input.isKeyPressed(Input.Keys.D) && pathCounter < 0.0f && map.isCellEmpty(getCellX() + 1, getCellY())) {
+        if (Gdx.input.isKeyPressed(Input.Keys.D) && pathCounter < 0.0f && map.canWalk(getCellX() + 1, getCellY())) {
             velocity.set(speed, 0.0f);
             pathCounter = 0.1f;
             currentState = State.MOVE;
         }
-        if (Gdx.input.isKeyPressed(Input.Keys.A) && pathCounter < 0.0f && map.isCellEmpty(getCellX() - 1, getCellY())) {
+        if (Gdx.input.isKeyPressed(Input.Keys.A) && pathCounter < 0.0f && map.canWalk(getCellX() - 1, getCellY())) {
             velocity.set(-speed, 0.0f);
             pathCounter = 0.1f;
             currentState = State.MOVE;
         }
-        if (Gdx.input.isKeyPressed(Input.Keys.W) && pathCounter < 0.0f && map.isCellEmpty(getCellX(), getCellY() + 1)) {
+        if (Gdx.input.isKeyPressed(Input.Keys.W) && pathCounter < 0.0f && map.canWalk(getCellX(), getCellY() + 1)) {
             velocity.set(0.0f, speed);
             pathCounter = 0.1f;
             currentState = State.MOVE;
         }
-        if (Gdx.input.isKeyPressed(Input.Keys.S) && pathCounter < 0.0f && map.isCellEmpty(getCellX(), getCellY() - 1)) {
+        if (Gdx.input.isKeyPressed(Input.Keys.S) && pathCounter < 0.0f && map.canWalk(getCellX(), getCellY() - 1)) {
             velocity.set(0.0f, -speed);
             pathCounter = 0.1f;
             currentState = State.MOVE;

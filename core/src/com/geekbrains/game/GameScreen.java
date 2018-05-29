@@ -21,7 +21,7 @@ public class GameScreen implements Screen {
 
     @Override
     public void show() {
-        map = new Map();
+        map = Map.getInstance();
         animationEmitter = new AnimationEmitter();
         bombEmitter = new BombEmitter(animationEmitter);
         player = new Bomberman(map, bombEmitter);
